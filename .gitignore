@@ -1,0 +1,224 @@
+# =============================================================================
+# force-main-reliability .gitignore
+# =============================================================================
+# Commit:  pyproject.toml, uv.lock, .python-version, environment.yml,
+#          requirements*.txt, notebooks (outputs stripped), shared IDE config.
+# Ignore:  environments, caches, build artifacts, secrets, data, generated results.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Python bytecode / extensions
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# -----------------------------------------------------------------------------
+# Packaging / build artifacts
+# -----------------------------------------------------------------------------
+build/
+dist/
+wheels/
+sdist/
+develop-eggs/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+.installed.cfg
+MANIFEST
+share/python-wheels/
+pip-wheel-metadata/
+
+# -----------------------------------------------------------------------------
+# Package managers & virtual environments
+# -----------------------------------------------------------------------------
+# uv  (uv.lock and .python-version are intentionally committed)
+.venv/
+.uv/
+.uv-cache/
+
+# pip / virtualenv
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+pip-log.txt
+pip-delete-this-directory.txt
+pyvenv.cfg
+
+# conda  (environment.yml is intentionally committed)
+.conda/
+conda-meta/
+envs/
+.condarc.local
+
+# pyenv / pdm / pipenv leftovers
+.pdm.toml
+.pdm-python
+.pdm-build/
+__pypackages__/
+
+# -----------------------------------------------------------------------------
+# Jupyter / notebooks
+# -----------------------------------------------------------------------------
+# Notebooks themselves are tracked; strip outputs before committing
+# (e.g. `uvx nbstripout --install` or a pre-commit hook).
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+.jupyter/
+.virtual_documents/
+*.nbconvert.ipynb
+.jupyter_ystore.db
+.jupyter_ystore.db-journal
+
+# -----------------------------------------------------------------------------
+# Testing / coverage / type checking / linting
+# -----------------------------------------------------------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+.tox/
+.nox/
+.cache/
+nosetests.xml
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+cython_debug/
+
+# -----------------------------------------------------------------------------
+# Data & generated results
+# -----------------------------------------------------------------------------
+# Keep the directory structure, ignore the contents. Use DVC / object storage
+# for large or sensitive datasets.
+data/raw/*
+data/processed/*
+data/
+results/
+
+
+# Large / binary data formats anywhere in the repo
+*.parquet
+*.feather
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+*.sqlite
+*.sqlite3
+*.db
+
+# Model artifacts / experiment tracking
+mlruns/
+mlartifacts/
+wandb/
+lightning_logs/
+.dvc/tmp/
+.dvc/cache/
+
+# -----------------------------------------------------------------------------
+# Docs builds
+# -----------------------------------------------------------------------------
+docs/_build/
+site/
+
+# -----------------------------------------------------------------------------
+# Secrets & local config
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+credentials.json
+.secrets/
+
+# -----------------------------------------------------------------------------
+# Logs & temp files
+# -----------------------------------------------------------------------------
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# -----------------------------------------------------------------------------
+# IDE: VS Code  (shared workspace config is committed)
+# -----------------------------------------------------------------------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+*.vsix
+*.code-workspace
+
+
+# -----------------------------------------------------------------------------
+# IDE: JetBrains (PyCharm, DataSpell, IntelliJ)
+# User-specific and machine-specific files are ignored; shared project settings
+# (code style, inspection profiles, run configurations) may be committed.
+# -----------------------------------------------------------------------------
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/contentModel.xml
+.idea/dataSources/
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/dbnavigator.xml
+.idea/httpRequests/
+.idea/caches/
+.idea/libraries/
+.idea/jupyter-settings.xml
+.idea/aws.xml
+.idea/copilot*
+.idea/**/ai*
+*.iws
+out/
+.idea_modules/
+atlassian-ide-plugin.xml
+cmake-build-*/
+
+# -----------------------------------------------------------------------------
+# OS files
+# -----------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*:Zone.Identifier
