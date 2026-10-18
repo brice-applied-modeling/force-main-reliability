@@ -101,11 +101,14 @@ The structure above is **planned**; individual files will be added as project mi
 
 ```bash
 # From the repository root
-python -m venv .venv
+uv init
+# Create a virtual environment
+uv venv
+# Activate the virtual environment
 source .venv/bin/activate       # Linux/macOS
-# .venv\Scripts\activate       # Windows PowerShell
-python -m pip install numpy pandas matplotlib jupyter pytest
-jupyter lab
+# .venv\Scripts\Activate.ps1    # Windows PowerShell
+# Install project dependencies
+uv add numpy pandas matplotlib seaborn scipy jupyterlab pytest
 ```
 
 Place the supplied synthetic CSV at `data/raw/force_main_segments_synthetic.csv`. Work through the numbered notebooks in order. Once the hazard tests are implemented, run:
